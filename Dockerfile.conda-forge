@@ -1,0 +1,10 @@
+FROM ubuntu:20.04
+RUN apt-get update && apt-get install -y wget
+RUN wget -qO- https://micromamba.snakepit.net/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+RUN mkdir /env
+RUN micromamba install -p /env python=3.9 c-compiler pip -c conda-forge
+SHELL ["bash", "-c"]
+COPY install.sh .
+RUN eval "$(micromamba shell hook -s bash)" && micromamba activate /env && ./install.sh
+COPY run.sh .
+ENTRYPOINT eval "$(micromamba shell hook -s bash)" && micromamba activate /env && exec ./run.sh "$1"

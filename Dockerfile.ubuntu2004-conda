@@ -1,7 +1,0 @@
-FROM ubuntu:20.04
-ADD https://micromamba.snakepit.net/api/micromamba/linux-64/latest /mamba
-SHELL ["bash", "-l", "-c"]
-RUN /mamba/bin/micromamba shell init -s bash -p ~/micromamba
-RUN micromamba install python=3.9 c-compiler
-COPY run.sh .
-ENTRYPOINT ["./run.sh"]
