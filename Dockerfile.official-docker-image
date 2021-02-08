@@ -1,3 +1,5 @@
 FROM python:3.9-buster
+COPY install.sh .
+RUN ./install.sh
 COPY run.sh .
 ENTRYPOINT ["./run.sh"]
