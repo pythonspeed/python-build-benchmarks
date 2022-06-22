@@ -1,0 +1,9 @@
+FROM ubuntu:22.04
+RUN apt-get update
+RUN apt-get install -y python3.10 python3.10-dev build-essential git
+RUN apt-get install -y python3.10-venv
+RUN python3.10 -m venv /venv
+COPY install.sh ./
+RUN . /venv/bin/activate && ./install.sh
+COPY run.sh .
+ENTRYPOINT . /venv/bin/activate && exec ./run.sh "$1"

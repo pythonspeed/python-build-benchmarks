@@ -1,4 +1,4 @@
-FROM python:3.9-buster
+FROM python:3.10-bullseye
 COPY install.sh .
 RUN ./install.sh
 COPY run.sh .

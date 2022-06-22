@@ -1,8 +1,0 @@
-FROM ubuntu:20.04
-RUN apt-get update && apt-get install -y python3.9 python3.9-dev build-essential
-RUN apt-get install -y python3.9-venv
-RUN python3.9 -m venv /venv
-COPY install.sh ./
-RUN . /venv/bin/activate && ./install.sh
-COPY run.sh .
-ENTRYPOINT . /venv/bin/activate && exec ./run.sh "$1"

@@ -1,8 +1,0 @@
-### 2to3 ###
-Mean +- std dev: 543 ms +- 3 ms
-
-### django_template ###
-Mean +- std dev: 92.5 ms +- 0.6 ms
-
-### unpickle_pure_python ###
-Mean +- std dev: 590 us +- 12 us
